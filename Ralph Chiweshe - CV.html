@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ralph Chiweshe - CV</title>
+    <style>
+      @keyframes color-changes {
+        0% {
+          color: black;
+        }
+        20% {
+          color: black;
+        }
+        40% {
+          color: white;
+        }
+        60% {
+          color: black;
+        }
+        80% {
+          color: black;
+        }
+        100% {
+          color: white;
+        }
+      }
+
+      @keyframes bg-changes {
+        0% {
+          background: linear-gradient(90deg, #ffffff, #0968c8);
+        }
+        20% {
+          background: linear-gradient(90deg, plum, white);
+        }
+        40% {
+          background: linear-gradient(90deg, plum, blue);
+        }
+        60% {
+          background: linear-gradient(90deg, #ffffff, #0968c8);
+        }
+        80% {
+          background: linear-gradient(90deg, plum, white);
+        }
+        100% {
+          background: linear-gradient(120deg, black, white);
+        }
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        animation: bg-changes 60s infinite reverse;
+
+        color: #333;
+      }
+      header {
+        animation: bg-changes 60s infinite reverse;
+        color: black;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+      }
+      header p {
+        margin: 0.5rem 0;
+      }
+
+      nav {
+        background-color: #000;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+      }
+      nav a {
+        color: white;
+        padding: 1rem;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        background: #0d6efd;
+      }
+      section {
+        font-weight: bold;
+        padding: 2rem;
+        display: none;
+        animation: color-changes 60s infinite reverse;
+      }
+      section.active {
+        display: block;
+      }
+      iframe {
+        width: 100%;
+        height: 1000px;
+        border: none;
+        border-radius: 10px;
+      }
+      .skills,
+      .soft-skills,
+      .languages,
+      .hobbies {
+        color: #000;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        color: black;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body background="https://media.giphy.com/media/oM23tK1YeYvIs/giphy.gif">
+    <header>
+      <h1>Ralph Chiweshe</h1>
+      <p>Software Engineering Intern | React • ReactNative • C# • Python</p>
+      <br />
+      <h3>Contact Me</h3>
+      <p>
+        <a href="0774109465">0774109465 </a>|
+        <a href="0774109465">0717581159 </a>|
+        <a href="mailto:chiwesheralph@gmail.com">Email</a> |
+        <a
+          href="https://www.linkedin.com/in/ralph-chiweshe6564615d"
+          style="color: #090cc8"
+          >LinkedIn</a
+        >
+        |
+        <a href="https://github.com/GamingImortal" target="_blank">GitHub</a>
+      </p>
+    </header>
+
+    <nav background="https://media.giphy.com/media/oM23tK1YeYvIs/giphy.gif">
+      <a href="#" onclick="showSection('profile')">Profile</a>
+      <a href="#" onclick="showSection('education')">Education</a>
+      <a href="#" onclick="showSection('skills')">Skills</a>
+      <a href="#" onclick="showSection('references')">References</a>
+      <a href="#" onclick="showSection('results')">Results</a>
+    </nav>
+
+    <section id="profile" class="active">
+      <h2>Profile</h2>
+      <p>
+        I am a 3rd yr Software Engineering student at UZ with a foundation in
+        software engineering and hands-on experience gained through practical
+        school projects. Proficient in React, React Native, node and Python.
+      </p>
+      <p>
+        I am Adept at collaborating within teams and eager to learn from
+        industry experts, aiming to contribute effectively to an internship
+        role.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <b>University of Zimbabwe</b> – BSc Software Engineering (Aug 2023 –
+          Aug 2027)
+        </li>
+        <li>
+          <b>Seke 1 High School</b> – A Level (Mar 2021 – Nov 2022): Math,
+          Economics, Business Studies
+        </li>
+        <li>
+          <b>St Mary’s High School</b> – O Level (Jan 2017 – Nov 2020): 7
+          Subjects including Math, Science, and English
+        </li>
+      </ul>
+      <h3>Courses</h3>
+      <ul>
+        <li>
+          Information and Digital Skills – University of Zimbabwe (Aug 2023 –
+          Feb 2024)
+        </li>
+        <li>Cloud Computing – Alison (May 2025 – Jul 2025)</li>
+        <li>Prompt Engineering – Alison (July 2025 – Aug 2025)</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">C#</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">React Native</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML/CSS/SCSS</span>
+        <span class="tag">Canva</span>
+      </div>
+
+      <h3>Soft Skills</h3>
+      <div class="soft-skills">
+        <span class="tag">Critical Thinking</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Time Management</span>
+      </div>
+
+      <h3>Languages</h3>
+      <div class="languages">
+        <span class="tag">English</span>
+        <span class="tag">French</span>
+        <span class="tag">Swahili</span>
+        <span class="tag">Shona</span>
+      </div>
+
+      <h3>Hobbies</h3>
+      <div class="hobbies">
+        <span class="tag">Web Design</span>
+        <span class="tag">Chess</span>
+        <span class="tag">Video Games</span>
+        <span class="tag">Football</span>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ul>
+        <li>
+          Chairperson Mukwazvure – University of Zimbabwe –
+          <a href="mailto:amukwazvure@ceic.uz.ac.zw"
+            >amukwazvure@ceic.uz.ac.zw</a
+          >
+        </li>
+        <li>
+          Simbarashe Zvakafa – University of Zimbabwe –
+          <a href="mailto:szvakafa@gmail.com">szvakafa@gmail.com</a>
+        </li>
+        <li>
+          Lecturer Jekese – University of Zimbabwe –
+          <a href="mailto:gjekese@ceic.uz.ac.zw">gjekese@ceic.uz.ac.zw</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="results">
+      <div class="scroll-text">
+        If you are viewing this on a mobile device, please rotate your device to
+        landscape mode for a better experience.
+      </div>
+
+      <style>
+        .scroll-text {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          box-sizing: border-box;
+          animation: scroll-left 25s linear infinite;
+        }
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      </style>
+
+      <h2>Exam Results</h2>
+      <p>View my academic record at the bottom of the resume document:</p>
+      <iframe
+        src="https://docs.google.com/document/d/1xGvnrfuCBiySwvgO4mj5RKEj-29IXb1i/edit?usp=sharing&ouid=109036135482895828149&rtpof=true&sd=true"
+      ></iframe>
+    </section>
+
+    <footer>
+      <p>
+        Cool CV right 😅, I just thought it would be cool if I did something
+        different lol
+      </p>
+      <br />
+      <p>&copy; 2025 Ralph Chiweshe</p>
+    </footer>
+
+    <script>
+      function showSection(id) {
+        document
+          .querySelectorAll("section")
+          .forEach((sec) => sec.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
