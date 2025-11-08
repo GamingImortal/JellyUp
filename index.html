@@ -6,98 +6,103 @@
     <title>Ralph Chiweshe - CV</title>
     <style>
       @keyframes color-changes {
-        0% {
-          color: black;
-        }
-        20% {
-          color: black;
-        }
-        40% {
-          color: white;
-        }
-        60% {
-          color: black;
-        }
+        0%,
+        20%,
+        60%,
         80% {
           color: black;
         }
+        40%,
         100% {
           color: white;
         }
       }
 
       @keyframes bg-changes {
-        0% {
+        0%,
+        60% {
           background: linear-gradient(90deg, #ffffff, #0968c8);
         }
-        20% {
+        20%,
+        80% {
           background: linear-gradient(90deg, plum, white);
         }
         40% {
           background: linear-gradient(90deg, plum, blue);
         }
-        60% {
-          background: linear-gradient(90deg, #ffffff, #0968c8);
-        }
-        80% {
-          background: linear-gradient(90deg, plum, white);
-        }
         100% {
           background: linear-gradient(120deg, black, white);
         }
       }
-
       body {
         font-family: "Segoe UI", sans-serif;
         margin: 0;
         animation: bg-changes 60s infinite reverse;
-
         color: #333;
+        background-size: cover;
+        background-attachment: fixed;
       }
+
       header {
         animation: bg-changes 60s infinite reverse;
         color: black;
         text-align: center;
         padding: 2rem 1rem;
       }
+
       header h1 {
         margin: 0;
         font-size: 2.2rem;
       }
+
       header p {
         margin: 0.5rem 0;
       }
 
       nav {
         background-color: #000;
-        background-size: cover;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
+
       nav a {
         color: white;
         padding: 1rem;
         text-decoration: none;
         transition: 0.3s;
+        flex: 1;
+        text-align: center;
+        min-width: 120px;
       }
+
       nav a:hover {
-        background: #0d6efd;
+        animation: bg-changes 60s infinite reverse;
       }
+
       section {
         font-weight: bold;
         padding: 2rem;
         display: none;
         animation: color-changes 60s infinite reverse;
+        max-width: 900px;
+        margin: 0 auto;
       }
+
       section.active {
         display: block;
       }
+
       iframe {
         width: 100%;
-        height: 1000px;
+        height: 80vh;
         border: none;
         border-radius: 10px;
       }
+
       .skills,
       .soft-skills,
       .languages,
@@ -107,12 +112,16 @@
         flex-wrap: wrap;
         gap: 10px;
       }
+
       .tag {
         color: black;
         padding: 5px 10px;
         border-radius: 20px;
         font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
       }
+
       footer {
         background: #222;
         color: white;
@@ -120,8 +129,75 @@
         padding: 1rem;
         margin-top: 2rem;
       }
+
+      .scroll-text {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: scroll-left 25s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        section {
+          padding: 1rem;
+          font-size: 0.95rem;
+        }
+
+        iframe {
+          height: 60vh;
+        }
+
+        nav {
+          flex-direction: column;
+        }
+
+        nav a {
+          padding: 0.8rem;
+          border-bottom: 1px solid #333;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header p,
+        section p,
+        li {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+
+        section {
+          padding: 0.8rem;
+        }
+
+        iframe {
+          @media (max-width: 480px) {
+            iframe {
+              iframe {
+             height: 50vh;
+
+              height: 60vh;
+            }
+          }
+          height: 50vh;
+        }
+      }
     </style>
   </head>
+
   <body background="https://media.giphy.com/media/oM23tK1YeYvIs/giphy.gif">
     <header>
       <h1>Ralph Chiweshe</h1>
@@ -129,8 +205,8 @@
       <br />
       <h3>Contact Me</h3>
       <p>
-        <a href="0774109465">0774109465 </a>|
-        <a href="0774109465">0717581159 </a>|
+        <a href="tel:0774109465">0774109465</a> |
+        <a href="tel:0717581159">0717581159</a> |
         <a href="mailto:chiwesheralph@gmail.com">Email</a> |
         <a
           href="https://www.linkedin.com/in/ralph-chiweshe6564615d"
@@ -142,7 +218,7 @@
       </p>
     </header>
 
-    <nav background="https://media.giphy.com/media/oM23tK1YeYvIs/giphy.gif">
+    <nav>
       <a href="#" onclick="showSection('profile')">Profile</a>
       <a href="#" onclick="showSection('education')">Education</a>
       <a href="#" onclick="showSection('skills')">Skills</a>
@@ -155,10 +231,10 @@
       <p>
         I am a 3rd yr Software Engineering student at UZ with a foundation in
         software engineering and hands-on experience gained through practical
-        school projects. Proficient in React, React Native, node and Python.
+        school projects. Proficient in React, React Native, Node, and Python.
       </p>
       <p>
-        I am Adept at collaborating within teams and eager to learn from
+        I am adept at collaborating within teams and eager to learn from
         industry experts, aiming to contribute effectively to an internship
         role.
       </p>
@@ -187,7 +263,7 @@
           Feb 2024)
         </li>
         <li>Cloud Computing – Alison (May 2025 – Jul 2025)</li>
-        <li>Prompt Engineering – Alison (July 2025 – Aug 2025)</li>
+        <li>Prompt Engineering – Alison (Jul 2025 – Aug 2025)</li>
       </ul>
     </section>
 
@@ -253,42 +329,23 @@
     </section>
 
     <section id="results">
-      <div class="scroll-text">
-        If you are viewing this on a mobile device, please rotate your device to
-        landscape mode for a better experience.
-      </div>
-
-      <style>
-        .scroll-text {
-          width: 100%;
-          white-space: nowrap;
-          overflow: hidden;
-          box-sizing: border-box;
-          animation: scroll-left 25s linear infinite;
-        }
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      </style>
-
+      <h5 style="color: red">
+        if you a using a mobile device rotate your screen to landscape for a
+        better experience
+      </h5>
       <h2>Exam Results</h2>
-      <p>View my academic record at the bottom of the resume document:</p>
+      <p>View my academic record in the last 2 pages of the document below:</p>
       <iframe
-        src="https://docs.google.com/document/d/1xGvnrfuCBiySwvgO4mj5RKEj-29IXb1i/edit?usp=sharing&ouid=109036135482895828149&rtpof=true&sd=true"
+        src="https://docs.google.com/document/d/1xGvnrfuCBiySwvgO4mj5RKEj-29IXb1i/edit?usp=sharing&zoom=100
+"
       ></iframe>
     </section>
 
     <footer>
       <p>
-        Cool CV right 😅, I just thought it would be cool if I did something
-        different lol
+        Cool CV right 😅 — I just thought it would be fun to make something
+        different!
       </p>
-      <br />
       <p>&copy; 2025 Ralph Chiweshe</p>
     </footer>
 
@@ -298,6 +355,7 @@
           .querySelectorAll("section")
           .forEach((sec) => sec.classList.remove("active"));
         document.getElementById(id).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     </script>
   </body>
