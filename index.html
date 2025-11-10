@@ -6,25 +6,19 @@
     <title>Ralph Chiweshe - CV</title>
     <style>
       @keyframes color-changes {
-        0%,
-        20%,
-        60%,
-        80% {
+        0%, 20%, 60%, 80% {
           color: black;
         }
-        40%,
-        100% {
+        40%, 100% {
           color: white;
         }
       }
 
       @keyframes bg-changes {
-        0%,
-        60% {
+        0%, 60% {
           background: linear-gradient(90deg, #ffffff, #0968c8);
         }
-        20%,
-        80% {
+        20%, 80% {
           background: linear-gradient(90deg, plum, white);
         }
         40% {
@@ -34,6 +28,7 @@
           background: linear-gradient(120deg, black, white);
         }
       }
+
       body {
         font-family: "Segoe UI", sans-serif;
         margin: 0;
@@ -41,6 +36,7 @@
         color: #333;
         background-size: cover;
         background-attachment: fixed;
+        transition: background 2s ease-in-out;
       }
 
       header {
@@ -48,6 +44,7 @@
         color: black;
         text-align: center;
         padding: 2rem 1rem;
+        transition: background 2s ease-in-out;
       }
 
       header h1 {
@@ -90,6 +87,7 @@
         animation: color-changes 60s infinite reverse;
         max-width: 900px;
         margin: 0 auto;
+        transition: background 2s ease-in-out;
       }
 
       section.active {
@@ -184,14 +182,6 @@
         }
 
         iframe {
-          @media (max-width: 480px) {
-            iframe {
-              iframe {
-             height: 50vh;
-
-              height: 60vh;
-            }
-          }
           height: 50vh;
         }
       }
@@ -336,8 +326,7 @@
       <h2>Exam Results</h2>
       <p>View my academic record in the last 2 pages of the document below:</p>
       <iframe
-        src="https://docs.google.com/document/d/1xGvnrfuCBiySwvgO4mj5RKEj-29IXb1i/edit?usp=sharing&zoom=100
-"
+        src="https://docs.google.com/document/d/1xGvnrfuCBiySwvgO4mj5RKEj-29IXb1i/edit?usp=sharing&zoom=100"
       ></iframe>
     </section>
 
@@ -360,3 +349,4 @@
     </script>
   </body>
 </html>
+
