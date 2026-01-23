@@ -43,6 +43,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            min-height: 80vh;
         }
 
         header {
@@ -62,6 +63,8 @@
             font-weight: 700;
             color: #7b68ee;
             transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .logo:hover {
@@ -90,6 +93,12 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+        }
+
+        nav a.active {
+            background: rgba(123, 104, 238, 0.2);
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.2);
         }
 
         nav a:before {
@@ -112,6 +121,7 @@
             box-shadow: 0 5px 15px rgba(123, 104, 238, 0.2);
         }
 
+        /* Home Page Styles */
         .hero {
             text-align: center;
             padding: 80px 0;
@@ -168,6 +178,7 @@
             box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -190,12 +201,58 @@
             left: 100%;
         }
 
-        .services {
+        .services-home {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 30px;
             margin: 100px 0;
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #7b68ee, #9370db, #8a2be2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 60px 0;
         }
 
         .service-card {
@@ -260,6 +317,244 @@
             font-size: 2rem;
             font-weight: 700;
             color: #7b68ee;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+            align-items: center;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: rgba(26, 26, 58, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+
+        .founder-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(26, 26, 58, 0.7);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+
+        .founder-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #7b68ee;
+        }
+
+        .founder-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #7b68ee;
+        }
+
+        .founder-title {
+            font-size: 1.2rem;
+            color: #b19cd9;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: rgba(26, 26, 58, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: rgba(26, 26, 58, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(123, 104, 238, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(123, 104, 238, 0.2);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(123, 104, 238, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: #7b68ee;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .contact-details p {
+            color: #b19cd9;
+        }
+
+        .contact-details a {
+            color: #b19cd9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #7b68ee;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e6e6fa;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(26, 26, 58, 0.9);
+            border: 1px solid rgba(123, 104, 238, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #7b68ee;
+            box-shadow: 0 0 10px rgba(123, 104, 238, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #7b68ee, #9370db);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(123, 104, 238, 0.4);
+        }
+
+        .portfolio-section {
+            margin: 60px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background: rgba(26, 26, 58, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(123, 104, 238, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #7b68ee;
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(45deg, #1a1a3a, #7b68ee);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #7b68ee;
+        }
+
+        .portfolio-content p {
+            color: #b19cd9;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .portfolio-tag {
+            background: rgba(123, 104, 238, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #b19cd9;
         }
 
         .jellyfish {
@@ -331,20 +626,41 @@
             color: #b19cd9;
         }
 
+        .home-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #7b68ee;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .home-link:hover {
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .tagline {
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline, .page-subtitle {
                 font-size: 1.3rem;
             }
             
             nav ul {
                 gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
-            .services {
+            .services-home, .services-section, .about-section, .contact-section {
                 justify-content: center;
             }
         }
@@ -367,22 +683,23 @@
 
     <div class="container">
         <header>
-            <div class="logo">
+            <div class="logo" id="homeLink">
                 <i class="fas fa-fish"></i>
                 <span>Jellyfishing Studios</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a class="nav-link active" data-page="home">Home</a></li>
+                    <li><a class="nav-link" data-page="services">Services</a></li>
+                    <li><a class="nav-link" data-page="portfolio">Portfolio</a></li>
+                    <li><a class="nav-link" data-page="about">About</a></li>
+                    <li><a class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
             <section class="hero">
                 <h1>Digital Solutions That Never Sink</h1>
                 <p class="tagline">We create robust websites, web apps, and mobile apps that withstand the currents of the digital ocean.</p>
@@ -393,10 +710,10 @@
                     <i class="fas fa-quote-right"></i>
                 </div>
                 
-                <a href="#contact" class="cta-button">Start Your Project From $30</a>
+                <a class="cta-button" data-page="contact">Start Your Project From $30</a>
             </section>
 
-            <section class="services">
+            <section class="services-home">
                 <div class="service-card">
                     <i class="fas fa-globe"></i>
                     <h3>Robust Websites</h3>
@@ -418,43 +735,428 @@
                     <div class="price">From $200</div>
                 </div>
             </section>
-        </main>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services" class="page">
+            <section class="page-title">
+                <h1>Our Services</h1>
+                <p class="page-subtitle">We offer a full spectrum of digital solutions to help your business thrive in the digital ocean.</p>
+            </section>
+
+            <section class="services-section">
+                <div class="service-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Robust Websites</h3>
+                    <p>We build stunning, high-performance websites that work flawlessly across all devices. Our sites are optimized for speed, SEO, and user experience.</p>
+                    <div class="price">From $30</div>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Applications</h3>
+                    <p>Custom web applications that solve complex business problems. Scalable, secure, and built with the latest technologies.</p>
+                    <div class="price">From $150</div>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android. Intuitive designs with powerful functionality.</p>
+                    <div class="price">From $200</div>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online store setups with payment integration, inventory management, and responsive design to maximize sales.</p>
+                    <div class="price">From $250</div>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO & Digital Marketing</h3>
+                    <p>Improve your online visibility with our comprehensive SEO services and digital marketing strategies that drive real results.</p>
+                    <div class="price">From $100/month</div>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing website maintenance, security updates, and technical support to keep your digital presence running smoothly.</p>
+                    <div class="price">From $50/month</div>
+                </div>
+            </section>
+
+            <button class="submit-btn" data-page="contact" style="max-width: 300px; margin: 40px auto; display: block;">Get a Free Quote</button>
+        </div>
+
+        <!-- Portfolio Page -->
+        <div id="portfolio" class="page">
+            <section class="page-title">
+                <h1>Our Portfolio</h1>
+                <p class="page-subtitle">See how we've helped businesses navigate the digital ocean successfully</p>
+            </section>
+
+            <section class="portfolio-section">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Oceanic Boutique</h3>
+                            <p>A complete e-commerce solution for a fashion retailer with inventory management, payment integration, and responsive design.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">E-commerce</span>
+                                <span class="portfolio-tag">Responsive</span>
+                                <span class="portfolio-tag">WordPress</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Fitness Tracker App</h3>
+                            <p>A cross-platform mobile application for tracking workouts, nutrition, and progress with social sharing features.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Mobile App</span>
+                                <span class="portfolio-tag">React Native</span>
+                                <span class="portfolio-tag">Fitness</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Business Analytics Dashboard</h3>
+                            <p>A custom web application for visualizing business metrics, generating reports, and data analysis.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Web App</span>
+                                <span class="portfolio-tag">React</span>
+                                <span class="portfolio-tag">Data Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Restaurant Booking System</h3>
+                            <p>Complete website with online booking, menu display, and table management system for a fine dining restaurant.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Website</span>
+                                <span class="portfolio-tag">Booking System</span>
+                                <span class="portfolio-tag">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Online Learning Platform</h3>
+                            <p>An educational platform with course management, video lessons, quizzes, and student progress tracking.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">LMS</span>
+                                <span class="portfolio-tag">Web Application</span>
+                                <span class="portfolio-tag">Education</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Corporate Website Redesign</h3>
+                            <p>Complete redesign and optimization of a corporate website with improved SEO and user experience.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Redesign</span>
+                                <span class="portfolio-tag">SEO</span>
+                                <span class="portfolio-tag">Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 40px; color: #b19cd9;">
+                    Want to see more? <a class="home-link" data-page="contact" style="display: inline;">Contact us</a> for our full portfolio and case studies.
+                </p>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="page-title">
+                <h1>About Jellyfishing Studios</h1>
+                <p class="page-subtitle">Diving deep into digital solutions since 2020</p>
+            </section>
+
+            <section class="about-section">
+                <div class="about-content">
+                    <h2 style="color: #7b68ee; margin-bottom: 20px;">Our Story</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.6;">Jellyfishing Studios was founded by <strong>Ralph Chiweshe</strong> with a simple philosophy: create digital solutions that are as resilient and adaptable as jellyfish in the ocean. Just like jellyfish have survived for millions of years by adapting to changing environments, we build websites and applications that stand the test of time and technology shifts.</p>
+                    
+                    <h3 style="color: #7b68ee; margin: 25px 0 15px;">What We Offer</h3>
+                    <p style="margin-bottom: 15px; line-height: 1.6;">At Jellyfishing Studios, we specialize in creating robust digital solutions that never sink under pressure. Our services include:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 25px; line-height: 1.8;">
+                        <li><strong>Custom Website Development</strong> - Responsive, fast, and SEO-optimized sites</li>
+                        <li><strong>Web Applications</strong> - Scalable solutions for complex business needs</li>
+                        <li><strong>Mobile Applications</strong> - iOS and Android apps with intuitive UX/UI</li>
+                        <li><strong>E-commerce Platforms</strong> - Complete online store solutions</li>
+                        <li><strong>Digital Marketing & SEO</strong> - Strategies to increase your online visibility</li>
+                        <li><strong>Ongoing Support</strong> - Maintenance and updates to keep your digital assets secure</li>
+                    </ul>
+                    
+                    <h3 style="color: #7b68ee; margin: 25px 0 15px;">Our Approach</h3>
+                    <p style="line-height: 1.6;">We believe in transparency, communication, and delivering beyond expectations. Every project begins with understanding your unique needs and ends with a solution that not only meets but exceeds your goals. Our motto, "If it crashes, we ain't make it," reflects our commitment to quality and reliability.</p>
+                </div>
+                
+                <div class="founder-card">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(45deg, #7b68ee, #9370db); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 4rem;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Ralph Chiweshe</h3>
+                    <p class="founder-title">Founder & Lead Developer</p>
+                    <p style="color: #b19cd9; line-height: 1.6;">With over 5 years of experience in web and mobile development, Ralph started Jellyfishing Studios to bring affordable, high-quality digital solutions to businesses of all sizes. His vision combines technical expertise with creative problem-solving.</p>
+                    <div style="margin-top: 25px;">
+                        <button class="submit-btn" data-page="contact">Contact Ralph</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="page-title">
+                <h1>Contact Us</h1>
+                <p class="page-subtitle">Ready to start your project? Get in touch with us today!</p>
+            </section>
+
+            <section class="contact-section">
+                <div class="contact-info">
+                    <h2 style="color: #7b68ee; margin-bottom: 30px;">Get In Touch</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+263774109465">+263 77 410 9465</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:jellyfishingdude@gmail.com">jellyfishingdude@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9am - 6pm</p>
+                            <p>Saturday: 10am - 2pm</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Based In</h4>
+                            <p>Harare, Zimbabwe</p>
+                            <p>Remote services available worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3 style="color: #7b68ee; margin-bottom: 15px;">Why Choose Us?</h3>
+                        <ul style="color: #b19cd9; line-height: 1.8; margin-left: 20px;">
+                            <li>Fast response time (usually within 2 hours)</li>
+                            <li>Free initial consultation</li>
+                            <li>Transparent pricing with no hidden fees</li>
+                            <li>Ongoing support after project completion</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2 style="color: #7b68ee; margin-bottom: 30px;">Send Us a Message</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+263 77 410 9465">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="website">Website Development</option>
+                                <option value="webapp">Web Application</option>
+                                <option value="mobile">Mobile App</option>
+                                <option value="ecommerce">E-commerce Solution</option>
+                                <option value="seo">SEO & Digital Marketing</option>
+                                <option value="maintenance">Maintenance & Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your project, timeline, and budget..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    
+                    <p style="text-align: center; margin-top: 20px; color: #b19cd9;">
+                        <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
+                    </p>
+                </div>
+            </section>
+        </div>
 
         <footer>
             <p>&copy; 2023 Jellyfishing Studios. All rights reserved.</p>
             <p>Digital solutions that withstand the test of time and traffic.</p>
             <div style="margin-top: 20px;">
-               
-               
+                <a href="tel:+263774109465" style="color: #b19cd9; margin: 0 10px; text-decoration: none;">
+                    <i class="fas fa-phone"></i> +263 77 410 9465
+                </a>
+                <a href="mailto:jellyfishingdude@gmail.com" style="color: #b19cd9; margin: 0 10px; text-decoration: none;">
+                    <i class="fas fa-envelope"></i> jellyfishingdude@gmail.com
+                </a>
             </div>
         </footer>
     </div>
 
     <script>
-        // Interactive catchphrase
-        const catchphrase = document.getElementById('catchphrase');
-        const originalPhrase = catchphrase.innerHTML;
-        const alternatePhrases = [
-            `"Our code is ocean-proof – it never sinks under pressure."`,
-            `"We don't just build apps, we craft digital ecosystems."`,
-            `"From concept to launch, we navigate the complex currents for you."`,
-            `"Stability isn't an add-on, it's built into our DNA."`
-        ];
-        
-        let currentPhraseIndex = 0;
-        
-        catchphrase.addEventListener('click', function() {
-            currentPhraseIndex = (currentPhraseIndex + 1) % alternatePhrases.length;
-            catchphrase.innerHTML = `<i class="fas fa-quote-left"></i> ${alternatePhrases[currentPhraseIndex]} <i class="fas fa-quote-right"></i>`;
+        // Page navigation system
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
             
-            // Reset after 5 seconds
-            setTimeout(() => {
-                catchphrase.innerHTML = originalPhrase;
-                currentPhraseIndex = 0;
-            }, 5000);
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update browser history
+            history.pushState({page: pageId}, '', `?page=${pageId}`);
+        }
+        
+        // Set up navigation links
+        document.querySelectorAll('.nav-link, .cta-button, .home-link, .submit-btn[data-page], #homeLink').forEach(element => {
+            if (element.getAttribute('data-page')) {
+                element.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    
+                    // Scroll to top when changing pages
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
         });
         
-        // Enhance floating divs interaction
+        // Check URL for page parameter on load
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageParam = urlParams.get('page');
+        const initialPage = pageParam || 'home';
+        showPage(initialPage);
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            const pageId = event.state ? event.state.page : 'home';
+            showPage(pageId);
+        });
+        
+        // Interactive catchphrase
+        const catchphrase = document.getElementById('catchphrase');
+        if (catchphrase) {
+            const originalPhrase = catchphrase.innerHTML;
+            const alternatePhrases = [
+                `"Our code is ocean-proof – it never sinks under pressure."`,
+                `"We don't just build apps, we craft digital ecosystems."`,
+                `"From concept to launch, we navigate the complex currents for you."`,
+                `"Stability isn't an add-on, it's built into our DNA."`
+            ];
+            
+            let currentPhraseIndex = 0;
+            
+            catchphrase.addEventListener('click', function() {
+                currentPhraseIndex = (currentPhraseIndex + 1) % alternatePhrases.length;
+                catchphrase.innerHTML = `<i class="fas fa-quote-left"></i> ${alternatePhrases[currentPhraseIndex]} <i class="fas fa-quote-right"></i>`;
+                
+                // Reset after 5 seconds
+                setTimeout(() => {
+                    catchphrase.innerHTML = originalPhrase;
+                    currentPhraseIndex = 0;
+                }, 5000);
+            });
+        }
+        
+        // Contact form submission
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show an alert
+            alert(`Thank you ${name}! Your message has been sent. We'll contact you at ${email} soon regarding ${service || 'your inquiry'}.`);
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Interactive floating divs
         const floatingDivs = document.querySelectorAll('.floating-div');
         floatingDivs.forEach(div => {
             div.addEventListener('mouseenter', function() {
@@ -473,15 +1175,30 @@
         serviceCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
                 const icon = this.querySelector('i');
-                icon.style.transform = 'scale(1.3) rotate(10deg)';
+                if (icon) {
+                    icon.style.transform = 'scale(1.3) rotate(10deg)';
+                }
             });
             
             card.addEventListener('mouseleave', function() {
                 const icon = this.querySelector('i');
-                icon.style.transform = 'scale(1) rotate(0deg)';
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+        
+        // Portfolio items interaction
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>
 </body>
 </html>
-
