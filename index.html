@@ -700,7 +700,7 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
         }
 
-        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE ON ALL DEVICES */
+        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE */
         .jellyfish-div {
             position: fixed;
             width: 150px;
@@ -934,7 +934,7 @@
             color: #f56565;
         }
 
-        /* MOBILE OPTIMIZATION - NOW SHOWING JELLYFISH ON MOBILE TOO */
+        /* MOBILE OPTIMIZATION */
         @media (max-width: 768px) {
             .desktop-emoji {
                 display: none;
@@ -944,39 +944,9 @@
                 display: inline-block;
             }
             
-            /* Make jellyfish smaller on mobile but still visible */
+            /* Hide animated jellyfish divs on mobile for performance */
             .jellyfish-div {
-                width: 80px;
-                height: 120px;
-                opacity: 0.5; /* More transparent on mobile */
-                filter: drop-shadow(0 0 10px rgba(123, 104, 238, 0.4));
-            }
-            
-            .jellyfish-body {
-                border-width: 2px;
-            }
-            
-            .tentacle {
-                width: 3px;
-                animation-duration: 2s; /* Faster animation on mobile */
-            }
-            
-            .jellyfish-eye {
-                width: 10px;
-                height: 10px;
-            }
-            
-            .jellyfish-eye::after {
-                width: 4px;
-                height: 4px;
-                top: 2px;
-                left: 2px;
-            }
-            
-            .jellyfish-mouth {
-                width: 12px;
-                height: 6px;
-                top: 30%;
+                display: none;
             }
             
             header {
@@ -1106,22 +1076,8 @@
             }
         }
 
-        /* Small phones - even smaller jellyfish */
+        /* Small phones */
         @media (max-width: 480px) {
-            .jellyfish-div {
-                width: 60px;
-                height: 90px;
-                opacity: 0.4;
-            }
-            
-            .jellyfish-tentacles {
-                top: 50%;
-            }
-            
-            .tentacle {
-                width: 2px;
-            }
-            
             nav ul {
                 gap: 5px;
             }
@@ -1170,7 +1126,7 @@
     </style>
 </head>
 <body>
-    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE ON ALL DEVICES -->
+    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW 8 JELLYFISH -->
     <div class="jellyfish-div jellyfish1">
         <div class="jellyfish-body">
             <div class="jellyfish-eyes">
@@ -1770,7 +1726,7 @@
         // Set up motto interactions
         if (catchphrase) {
             catchphrase.addEventListener('click', changeCatchphrase);
-            setInterval(autoRotateMotto, 20000); // Rotate every 60 seconds
+            setInterval(autoRotateMotto, 60000); // Rotate every 60 seconds
         }
 
         function enlargeIcon(card) {
