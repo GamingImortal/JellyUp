@@ -700,7 +700,7 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
         }
 
-        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE ON ALL DEVICES */
+        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - OPTIMIZED */
         .jellyfish-div {
             position: fixed;
             width: 150px;
@@ -709,6 +709,7 @@
             pointer-events: none;
             filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
             opacity: 0.9;
+            transition: all 0.3s ease;
         }
 
         .jellyfish-body {
@@ -801,61 +802,14 @@
         }
 
         /* Individual jellyfish positions and animations */
-        .jellyfish1 { 
-            top: 5%; 
-            left: 2%; 
-            animation: swim 25s infinite ease-in-out;
-            transform: scale(0.8);
-        }
-        .jellyfish2 { 
-            top: 15%; 
-            right: 3%; 
-            animation: swim 22s infinite ease-in-out;
-            animation-delay: -3s;
-            transform: scale(1.1);
-        }
-        .jellyfish3 { 
-            bottom: 10%; 
-            left: 8%; 
-            animation: drift 28s infinite ease-in-out;
-            animation-delay: -5s;
-            transform: scale(0.9);
-        }
-        .jellyfish4 { 
-            top: 30%; 
-            right: 15%; 
-            animation: swim 24s infinite ease-in-out;
-            animation-delay: -7s;
-            transform: scale(1.2);
-        }
-        .jellyfish5 { 
-            bottom: 20%; 
-            right: 5%; 
-            animation: drift 30s infinite ease-in-out;
-            animation-delay: -2s;
-            transform: scale(0.7);
-        }
-        .jellyfish6 { 
-            bottom: 40%; 
-            left: 20%; 
-            animation: swim 26s infinite ease-in-out;
-            animation-delay: -9s;
-            transform: scale(1);
-        }
-        .jellyfish7 { 
-            top: 60%; 
-            left: 25%; 
-            animation: drift 27s infinite ease-in-out;
-            animation-delay: -4s;
-            transform: scale(0.8);
-        }
-        .jellyfish8 { 
-            top: 70%; 
-            right: 20%; 
-            animation: swim 29s infinite ease-in-out;
-            animation-delay: -6s;
-            transform: scale(1.1);
-        }
+        .jellyfish1 { top: 5%; left: 2%; animation: swim 25s infinite ease-in-out; transform: scale(0.8); }
+        .jellyfish2 { top: 15%; right: 3%; animation: swim 22s infinite ease-in-out; animation-delay: -3s; transform: scale(1.1); }
+        .jellyfish3 { bottom: 10%; left: 8%; animation: drift 28s infinite ease-in-out; animation-delay: -5s; transform: scale(0.9); }
+        .jellyfish4 { top: 30%; right: 15%; animation: swim 24s infinite ease-in-out; animation-delay: -7s; transform: scale(1.2); }
+        .jellyfish5 { bottom: 20%; right: 5%; animation: drift 30s infinite ease-in-out; animation-delay: -2s; transform: scale(0.7); }
+        .jellyfish6 { bottom: 40%; left: 20%; animation: swim 26s infinite ease-in-out; animation-delay: -9s; transform: scale(1); }
+        .jellyfish7 { top: 60%; left: 25%; animation: drift 27s infinite ease-in-out; animation-delay: -4s; transform: scale(0.8); }
+        .jellyfish8 { top: 70%; right: 20%; animation: swim 29s infinite ease-in-out; animation-delay: -6s; transform: scale(1.1); }
 
         /* Footer */
         footer {
@@ -934,7 +888,39 @@
             color: #f56565;
         }
 
-        /* MOBILE OPTIMIZATION - NOW SHOWING JELLYFISH ON MOBILE TOO */
+        /* MOBILE OPTIMIZATION - REDUCED JELLYFISH AND TENTACLES */
+        @media (max-width: 992px) {
+            /* Medium screens - reduce jellyfish count and simplify */
+            .jellyfish-div {
+                opacity: 0.4;
+                filter: drop-shadow(0 0 10px rgba(123, 104, 238, 0.3));
+            }
+            
+            /* Hide some jellyfish on medium screens */
+            .jellyfish4, .jellyfish5, .jellyfish6, .jellyfish7, .jellyfish8 {
+                display: none;
+            }
+            
+            /* Keep only 3 jellyfish on medium screens */
+            .jellyfish1, .jellyfish2, .jellyfish3 {
+                display: block;
+                width: 100px;
+                height: 150px;
+            }
+            
+            /* Reduce tentacles count for better performance */
+            .jellyfish1 .tentacle:nth-child(n+6),
+            .jellyfish2 .tentacle:nth-child(n+6),
+            .jellyfish3 .tentacle:nth-child(n+6) {
+                display: none;
+            }
+            
+            /* Simplify animations on medium screens */
+            .jellyfish1, .jellyfish2, .jellyfish3 {
+                animation: float 10s infinite ease-in-out !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .desktop-emoji {
                 display: none;
@@ -944,39 +930,66 @@
                 display: inline-block;
             }
             
-            /* Make jellyfish smaller on mobile but still visible */
+            /* Further reduce jellyfish on mobile - only 2 jellyfish */
             .jellyfish-div {
-                width: 80px;
-                height: 120px;
-                opacity: 0.5; /* More transparent on mobile */
-                filter: drop-shadow(0 0 10px rgba(123, 104, 238, 0.4));
+                width: 70px;
+                height: 100px;
+                opacity: 0.3;
             }
             
+            /* Hide all except first 2 */
+            .jellyfish3, .jellyfish4, .jellyfish5, .jellyfish6, .jellyfish7, .jellyfish8 {
+                display: none;
+            }
+            
+            .jellyfish1, .jellyfish2 {
+                display: block;
+            }
+            
+            /* Remove most tentacles on mobile - keep only 3 per jellyfish */
+            .jellyfish1 .tentacle:nth-child(n+4),
+            .jellyfish2 .tentacle:nth-child(n+4) {
+                display: none;
+            }
+            
+            /* Make remaining tentacles simpler */
+            .jellyfish1 .tentacle,
+            .jellyfish2 .tentacle {
+                width: 3px;
+                animation-duration: 3s;
+                filter: blur(0.5px);
+                background: linear-gradient(to bottom, rgba(200, 160, 255, 0.6), rgba(120, 70, 200, 0.2));
+            }
+            
+            /* Simplify body */
             .jellyfish-body {
                 border-width: 2px;
+                box-shadow: 0 0 20px rgba(150, 100, 255, 0.3);
             }
             
-            .tentacle {
-                width: 3px;
-                animation-duration: 2s; /* Faster animation on mobile */
-            }
-            
+            /* Smaller eyes */
             .jellyfish-eye {
-                width: 10px;
-                height: 10px;
+                width: 8px;
+                height: 8px;
             }
             
             .jellyfish-eye::after {
-                width: 4px;
-                height: 4px;
+                width: 3px;
+                height: 3px;
                 top: 2px;
                 left: 2px;
             }
             
             .jellyfish-mouth {
-                width: 12px;
-                height: 6px;
+                width: 10px;
+                height: 5px;
                 top: 30%;
+                border-width: 1px;
+            }
+            
+            /* Remove animations on mobile for better performance */
+            .jellyfish1, .jellyfish2 {
+                animation: float 15s infinite ease-in-out !important;
             }
             
             header {
@@ -1106,20 +1119,38 @@
             }
         }
 
-        /* Small phones - even smaller jellyfish */
+        /* Small phones - minimal jellyfish */
         @media (max-width: 480px) {
-            .jellyfish-div {
-                width: 60px;
-                height: 90px;
-                opacity: 0.4;
+            /* Only 1 jellyfish on very small screens */
+            .jellyfish2 {
+                display: none;
             }
             
-            .jellyfish-tentacles {
-                top: 50%;
+            .jellyfish1 {
+                display: block;
+                width: 50px;
+                height: 75px;
+                opacity: 0.25;
             }
             
-            .tentacle {
+            /* Keep only 2 tentacles */
+            .jellyfish1 .tentacle:nth-child(n+3) {
+                display: none;
+            }
+            
+            .jellyfish1 .tentacle {
                 width: 2px;
+                animation: none; /* Remove animation on smallest screens */
+            }
+            
+            /* Remove body animation */
+            .jellyfish-body {
+                animation: none;
+            }
+            
+            /* Remove swimming animation */
+            .jellyfish1 {
+                animation: float 20s infinite ease-in-out !important;
             }
             
             nav ul {
@@ -1167,10 +1198,17 @@
                 gap: 10px;
             }
         }
+
+        /* Print styles - hide jellyfish when printing */
+        @media print {
+            .jellyfish-div {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE ON ALL DEVICES -->
+    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - OPTIMIZED FOR MOBILE -->
     <div class="jellyfish-div jellyfish1">
         <div class="jellyfish-body">
             <div class="jellyfish-eyes">
@@ -1770,7 +1808,7 @@
         // Set up motto interactions
         if (catchphrase) {
             catchphrase.addEventListener('click', changeCatchphrase);
-            setInterval(autoRotateMotto, 20000); // Rotate every 60 seconds
+            setInterval(autoRotateMotto, 20000); // Rotate every 20 seconds
         }
 
         function enlargeIcon(card) {
