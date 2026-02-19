@@ -917,6 +917,38 @@
                 animation: float 12s infinite ease-in-out !important;
             }
         }
+        /* PC and larger screens - make jellyfish more transparent */
+@media (min-width: 993px) {
+    .jellyfish-div {
+        opacity: 0.3 !important; /* Much lighter so content shows through */
+        filter: drop-shadow(0 0 10px rgba(123, 104, 238, 0.3)) !important;
+    }
+    
+    /* Optional: Make them even lighter when hovering over content */
+    .container:hover ~ .jellyfish-div,
+    header:hover ~ .jellyfish-div,
+    .page:hover ~ .jellyfish-div {
+        opacity: 0.2 !important;
+    }
+    
+    /* Reduce the glow effect */
+    .jellyfish-body {
+        box-shadow: 0 0 20px rgba(150, 100, 255, 0.3) !important;
+    }
+    
+    /* Make tentacles less prominent */
+    .tentacle {
+        filter: blur(2px) !important;
+        opacity: 0.7 !important;
+    }
+}
+
+/* Even lighter for very large screens */
+@media (min-width: 1400px) {
+    .jellyfish-div {
+        opacity: 0.25 !important;
+    }
+}
 
         @media (max-width: 768px) {
             .desktop-emoji {
@@ -1857,3 +1889,4 @@
     </script>
 </body>
 </html>
+
