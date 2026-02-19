@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Jellyfishing Studios 🪼 | Robust Digital Solutions</title>
+    <title>Jellyfishing Studios | Robust Digital Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,7 +21,7 @@
             position: relative;
         }
 
-        /* Cool animated background */
+        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -50,13 +50,37 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.5; filter: blur(5px); }
-            50% { opacity: 1; filter: blur(8px); }
+            0%, 100% { opacity: 0.6; filter: blur(3px); }
+            50% { opacity: 1; filter: blur(5px); }
         }
 
         @keyframes glow {
             0%, 100% { box-shadow: 0 0 20px rgba(123, 104, 238, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(147, 112, 219, 0.6); }
+            50% { box-shadow: 0 0 50px rgba(147, 112, 219, 0.7); }
+        }
+
+        /* Jellyfish tentacle animation */
+        @keyframes tentacleWave {
+            0%, 100% { transform: translateY(0) scaleY(1) rotate(0deg); }
+            25% { transform: translateY(-8px) scaleY(1.2) rotate(2deg); }
+            50% { transform: translateY(8px) scaleY(0.8) rotate(-2deg); }
+            75% { transform: translateY(-5px) scaleY(1.1) rotate(1deg); }
+        }
+
+        @keyframes swim {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(30px, -20px) rotate(5deg); }
+            40% { transform: translate(10px, -40px) rotate(-3deg); }
+            60% { transform: translate(-20px, -25px) rotate(2deg); }
+            80% { transform: translate(-30px, 10px) rotate(-5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, -15px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
         }
 
         .container {
@@ -117,6 +141,15 @@
             color: #7b68ee;
             filter: drop-shadow(0 0 15px #7b68ee);
             animation: pulse 4s infinite ease-in-out;
+        }
+
+        /* Jellyfish emoji - visible on PC, hidden on mobile */
+        .desktop-emoji {
+            display: inline-block;
+        }
+
+        .mobile-emoji {
+            display: none;
         }
 
         nav ul {
@@ -182,6 +215,11 @@
             text-shadow: 0 5px 25px rgba(123, 104, 238, 0.3);
             font-weight: 800;
             line-height: 1.2;
+        }
+
+        .hero h1 .desktop-emoji {
+            font-size: 3.5rem;
+            filter: drop-shadow(0 0 20px #7b68ee);
         }
 
         .tagline {
@@ -662,66 +700,161 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
         }
 
-        /* Cool jellyfish background elements */
-        .jellyfish {
+        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW VISIBLE */
+        .jellyfish-div {
             position: fixed;
-            width: 100px;
-            height: 150px;
-            background: radial-gradient(circle at 50% 20%, rgba(123, 104, 238, 0.3), transparent 70%);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            filter: blur(8px);
-            animation: float 12s infinite ease-in-out;
-            z-index: 1;
-            opacity: 0.4;
+            width: 150px;
+            height: 220px;
+            z-index: 10;
             pointer-events: none;
-            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
+            opacity: 0.9;
         }
 
-        .jellyfish::before {
-            content: '';
+        .jellyfish-body {
             position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 60px;
-            background: linear-gradient(to bottom, rgba(123, 104, 238, 0.6), transparent);
-            filter: blur(2px);
-        }
-
-        .jellyfish::after {
-            content: '';
-            position: absolute;
-            bottom: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(to bottom, transparent 10%, rgba(123, 104, 238, 0.3) 20%, transparent 90%);
-            clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);
-            filter: blur(3px);
-        }
-
-        .floating-divs {
-            position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
-            pointer-events: none;
-            z-index: 1;
+            width: 100%;
+            height: 60%;
+            background: radial-gradient(circle at 30% 30%, rgba(180, 130, 255, 0.8), rgba(100, 50, 200, 0.5));
+            border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+            backdrop-filter: blur(2px);
+            border: 3px solid rgba(200, 180, 255, 0.6);
+            box-shadow: 0 0 40px rgba(150, 100, 255, 0.7), inset 0 0 30px rgba(255, 255, 255, 0.3);
+            animation: pulse 5s infinite ease-in-out;
         }
 
-        .floating-div {
+        .jellyfish-tentacles {
             position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            background: rgba(123, 104, 238, 0.05);
-            border: 2px solid rgba(123, 104, 238, 0.2);
-            animation: float 15s infinite ease-in-out;
-            pointer-events: none;
-            backdrop-filter: blur(5px);
+            top: 55%;
+            left: 0;
+            width: 100%;
+            height: 45%;
+            display: flex;
+            justify-content: space-around;
+            filter: drop-shadow(0 0 10px rgba(150, 100, 255, 0.6));
+        }
+
+        .tentacle {
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(200, 160, 255, 0.9), rgba(120, 70, 200, 0.3));
+            border-radius: 3px;
+            transform-origin: top center;
+            animation: tentacleWave 2.5s infinite ease-in-out;
+            filter: blur(1px);
+            box-shadow: 0 0 15px rgba(180, 130, 255, 0.7);
+        }
+
+        .tentacle:nth-child(1) { animation-delay: 0s; height: 95%; width: 8px; }
+        .tentacle:nth-child(2) { animation-delay: 0.3s; height: 85%; width: 7px; }
+        .tentacle:nth-child(3) { animation-delay: 0.6s; height: 100%; width: 9px; }
+        .tentacle:nth-child(4) { animation-delay: 0.9s; height: 90%; width: 6px; }
+        .tentacle:nth-child(5) { animation-delay: 1.2s; height: 80%; width: 7px; }
+        .tentacle:nth-child(6) { animation-delay: 1.5s; height: 95%; width: 8px; }
+        .tentacle:nth-child(7) { animation-delay: 1.8s; height: 85%; width: 6px; }
+        .tentacle:nth-child(8) { animation-delay: 2.1s; height: 75%; width: 7px; }
+        .tentacle:nth-child(9) { animation-delay: 2.4s; height: 90%; width: 8px; }
+        .tentacle:nth-child(10) { animation-delay: 2.7s; height: 80%; width: 7px; }
+
+        .jellyfish-eyes {
+            position: absolute;
+            top: 25%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .jellyfish-eye {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        .jellyfish-eye::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #0a0a2a;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+        }
+
+        .jellyfish-mouth {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background: rgba(255, 100, 150, 0.5);
+            border-radius: 0 0 20px 20px;
+            border: 2px solid rgba(255, 150, 200, 0.8);
+        }
+
+        /* Individual jellyfish positions and animations */
+        .jellyfish1 { 
+            top: 5%; 
+            left: 2%; 
+            animation: swim 25s infinite ease-in-out;
+            transform: scale(0.8);
+        }
+        .jellyfish2 { 
+            top: 15%; 
+            right: 3%; 
+            animation: swim 22s infinite ease-in-out;
+            animation-delay: -3s;
+            transform: scale(1.1);
+        }
+        .jellyfish3 { 
+            bottom: 10%; 
+            left: 8%; 
+            animation: drift 28s infinite ease-in-out;
+            animation-delay: -5s;
+            transform: scale(0.9);
+        }
+        .jellyfish4 { 
+            top: 30%; 
+            right: 15%; 
+            animation: swim 24s infinite ease-in-out;
+            animation-delay: -7s;
+            transform: scale(1.2);
+        }
+        .jellyfish5 { 
+            bottom: 20%; 
+            right: 5%; 
+            animation: drift 30s infinite ease-in-out;
+            animation-delay: -2s;
+            transform: scale(0.7);
+        }
+        .jellyfish6 { 
+            bottom: 40%; 
+            left: 20%; 
+            animation: swim 26s infinite ease-in-out;
+            animation-delay: -9s;
+            transform: scale(1);
+        }
+        .jellyfish7 { 
+            top: 60%; 
+            left: 25%; 
+            animation: drift 27s infinite ease-in-out;
+            animation-delay: -4s;
+            transform: scale(0.8);
+        }
+        .jellyfish8 { 
+            top: 70%; 
+            right: 20%; 
+            animation: swim 29s infinite ease-in-out;
+            animation-delay: -6s;
+            transform: scale(1.1);
         }
 
         /* Footer */
@@ -801,8 +934,21 @@
             color: #f56565;
         }
 
-        /* MOBILE OPTIMIZATION - FIXED */
+        /* MOBILE OPTIMIZATION */
         @media (max-width: 768px) {
+            .desktop-emoji {
+                display: none;
+            }
+            
+            .mobile-emoji {
+                display: inline-block;
+            }
+            
+            /* Hide animated jellyfish divs on mobile for performance */
+            .jellyfish-div {
+                display: none;
+            }
+            
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -928,16 +1074,6 @@
             .page-subtitle {
                 font-size: 1rem;
             }
-            
-            .floating-div {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .jellyfish {
-                width: 60px;
-                height: 90px;
-            }
         }
 
         /* Small phones */
@@ -990,25 +1126,190 @@
     </style>
 </head>
 <body>
-    <div class="floating-divs">
-        <div class="floating-div" style="top: 5%; left: 2%;"></div>
-        <div class="floating-div" style="top: 15%; right: 3%; animation-delay: -2s;"></div>
-        <div class="floating-div" style="bottom: 10%; left: 8%; animation-delay: -4s;"></div>
-        <div class="floating-div" style="top: 30%; right: 15%; animation-delay: -6s;"></div>
-        <div class="floating-div" style="bottom: 20%; right: 5%; animation-delay: -8s;"></div>
-        <div class="floating-div" style="bottom: 40%; left: 20%; animation-delay: -10s;"></div>
+    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - NOW 8 JELLYFISH -->
+    <div class="jellyfish-div jellyfish1">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
     </div>
-
-    <div class="jellyfish" style="top: 10%; left: 5%;"></div>
-    <div class="jellyfish" style="top: 70%; right: 8%; animation-delay: -3s;"></div>
-    <div class="jellyfish" style="bottom: 15%; left: 15%; animation-delay: -6s;"></div>
-    <div class="jellyfish" style="top: 40%; right: 20%; animation-delay: -9s;"></div>
+    
+    <div class="jellyfish-div jellyfish2">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish3">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish4">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish5">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish6">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish7">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    
+    <div class="jellyfish-div jellyfish8">
+        <div class="jellyfish-body">
+            <div class="jellyfish-eyes">
+                <div class="jellyfish-eye"></div>
+                <div class="jellyfish-eye"></div>
+            </div>
+            <div class="jellyfish-mouth"></div>
+        </div>
+        <div class="jellyfish-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
 
     <div class="container">
         <header>
             <div class="logo" onclick="showPage('home'); return false;">
                 <i class="fas fa-fish"></i>
                 <span>Jellyfishing Studios</span>
+                <span class="desktop-emoji">🪼</span>
+                <span class="mobile-emoji"></span>
             </div>
             <nav>
                 <ul>
@@ -1023,10 +1324,10 @@
 
         <div id="home" class="page active">
             <section class="hero">
-                <h1>Digital Solutions That Never Sink</h1>
+                <h1>Digital Solutions That Never Sink <span class="desktop-emoji">🪼</span></h1>
                 <p class="tagline">We create robust websites, web apps, and mobile apps that withstand the currents of the digital ocean.</p>
                 
-                <div class="catchphrase" id="catchphrase" onclick="changeCatchphrase()">
+                <div class="catchphrase" id="catchphrase">
                     <i class="fas fa-quote-left"></i>
                     "If it crashes, we ain't make it – we swim deeper."
                     <i class="fas fa-quote-right"></i>
@@ -1061,7 +1362,7 @@
 
         <div id="services" class="page">
             <section class="page-title">
-                <h1>Our Services</h1>
+                <h1>Our Services <span class="desktop-emoji">🪼</span></h1>
                 <p class="page-subtitle">We offer a full spectrum of digital solutions to help your business thrive in the digital ocean.</p>
             </section>
 
@@ -1112,7 +1413,7 @@
 
         <div id="portfolio" class="page">
             <section class="page-title">
-                <h1>Our Portfolio</h1>
+                <h1>Our Portfolio <span class="desktop-emoji">🪼</span></h1>
                 <p class="page-subtitle">See how we've helped businesses navigate the digital ocean successfully</p>
             </section>
 
@@ -1217,7 +1518,7 @@
 
         <div id="about" class="page">
             <section class="page-title">
-                <h1>About Jellyfishing Studios</h1>
+                <h1>About Jellyfishing Studios <span class="desktop-emoji">🪼</span></h1>
                 <p class="page-subtitle">Diving deep into digital solutions since 2020</p>
             </section>
 
@@ -1256,7 +1557,7 @@
 
         <div id="contact" class="page">
             <section class="page-title">
-                <h1>Contact Us</h1>
+                <h1>Contact Us <span class="desktop-emoji">🪼</span></h1>
                 <p class="page-subtitle">Ready to start your project? Get in touch with us today!</p>
             </section>
 
@@ -1368,7 +1669,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2023 Jellyfishing Studios. All rights reserved.</p>
+            <p>&copy; 2023 Jellyfishing Studios. All rights reserved. <span class="desktop-emoji">🪼</span></p>
             <p>Digital solutions that withstand the test of time and traffic.</p>
             <div class="footer-links">
                 <a href="tel:+263774109465"><i class="fas fa-phone"></i> +263 77 410 9465</a>
@@ -1398,21 +1699,34 @@
             return false;
         }
 
+        // Motto rotation
+        const mottoPhrases = [
+            '<i class="fas fa-quote-left"></i> "If it crashes, we ain\'t make it – we swim deeper." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "Our code is ocean-proof – it never sinks under pressure." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "We don\'t just build apps, we craft digital ecosystems." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "From concept to launch, we navigate the complex currents for you." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "We swim deeper so your business can float higher." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "Stability isn\'t an add-on, it\'s built into our DNA." <i class="fas fa-quote-right"></i>',
+            '<i class="fas fa-quote-left"></i> "Your success is our current – we ride the waves together." <i class="fas fa-quote-right"></i>'
+        ];
+        
+        let currentMottoIndex = 0;
+        const catchphrase = document.getElementById('catchphrase');
+        
         function changeCatchphrase() {
-            var catchphrase = document.getElementById('catchphrase');
-            var phrases = [
-                '<i class="fas fa-quote-left"></i> "Our code is ocean-proof – it never sinks under pressure." <i class="fas fa-quote-right"></i>',
-                '<i class="fas fa-quote-left"></i> "We don\'t just build apps, we craft digital ecosystems." <i class="fas fa-quote-right"></i>',
-                '<i class="fas fa-quote-left"></i> "From concept to launch, we navigate the complex currents for you." <i class="fas fa-quote-right"></i>',
-                '<i class="fas fa-quote-left"></i> "We swim deeper so your business can float higher." <i class="fas fa-quote-right"></i>'
-            ];
-            
-            var randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-            catchphrase.innerHTML = randomPhrase;
-            
-            setTimeout(function() {
-                catchphrase.innerHTML = '<i class="fas fa-quote-left"></i> "If it crashes, we ain\'t make it – we swim deeper." <i class="fas fa-quote-right"></i>';
-            }, 3000);
+            currentMottoIndex = (currentMottoIndex + 1) % mottoPhrases.length;
+            catchphrase.innerHTML = mottoPhrases[currentMottoIndex];
+        }
+        
+        function autoRotateMotto() {
+            currentMottoIndex = (currentMottoIndex + 1) % mottoPhrases.length;
+            catchphrase.innerHTML = mottoPhrases[currentMottoIndex];
+        }
+        
+        // Set up motto interactions
+        if (catchphrase) {
+            catchphrase.addEventListener('click', changeCatchphrase);
+            setInterval(autoRotateMotto, 60000); // Rotate every 60 seconds
         }
 
         function enlargeIcon(card) {
