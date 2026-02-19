@@ -50,8 +50,8 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.6; filter: blur(3px); }
-            50% { opacity: 1; filter: blur(5px); }
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
         }
 
         @keyframes glow {
@@ -99,7 +99,7 @@
             align-items: center;
             padding: 20px 30px;
             position: relative;
-            z-index: 1000;
+            z-index: 10000;
             background: rgba(10, 10, 42, 0.3);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -120,7 +120,7 @@
             text-decoration: none;
             cursor: pointer;
             position: relative;
-            z-index: 1000;
+            z-index: 10001;
             text-shadow: 0 0 20px #7b68ee;
         }
 
@@ -141,6 +141,12 @@
             color: #7b68ee;
             filter: drop-shadow(0 0 15px #7b68ee);
             animation: pulse 4s infinite ease-in-out;
+            position: relative;
+            z-index: 10002;
+            /* Removed blur effect */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         /* Jellyfish emoji - visible on PC, hidden on mobile */
@@ -157,7 +163,7 @@
             list-style: none;
             gap: 10px;
             position: relative;
-            z-index: 1000;
+            z-index: 10001;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -171,7 +177,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             display: inline-block;
-            z-index: 1000;
+            z-index: 10001;
             font-size: 1rem;
             background: rgba(123, 104, 238, 0.1);
             border: 1px solid rgba(123, 104, 238, 0.2);
@@ -700,12 +706,12 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
         }
 
-        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - MOVED TO FRONT */
+        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - MOUTHS REMOVED */
         .jellyfish-div {
             position: fixed;
             width: 150px;
             height: 220px;
-            z-index: 9999; /* Increased z-index to bring to front */
+            z-index: 9999;
             pointer-events: none;
             filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
             opacity: 0.9;
@@ -789,17 +795,7 @@
             left: 4px;
         }
 
-        .jellyfish-mouth {
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 10px;
-            background: rgba(255, 100, 150, 0.5);
-            border-radius: 0 0 20px 20px;
-            border: 2px solid rgba(255, 150, 200, 0.8);
-        }
+        /* MOUTH STYLES REMOVED COMPLETELY */
 
         /* Individual jellyfish positions and animations */
         .jellyfish1 { top: 5%; left: 2%; animation: swim 25s infinite ease-in-out; transform: scale(0.8); }
@@ -892,9 +888,9 @@
         @media (max-width: 992px) {
             /* Medium screens - reduce jellyfish count and simplify */
             .jellyfish-div {
-                opacity: 0.8; /* Increased opacity for better visibility */
+                opacity: 0.8;
                 filter: drop-shadow(0 0 15px rgba(123, 104, 238, 0.5));
-                z-index: 9999; /* Keep at front */
+                z-index: 9999;
             }
             
             /* Hide some jellyfish on medium screens */
@@ -935,8 +931,8 @@
             .jellyfish-div {
                 width: 100px;
                 height: 140px;
-                opacity: 0.8; /* Good visibility */
-                z-index: 9999; /* Front and center */
+                opacity: 0.8;
+                z-index: 9999;
                 filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
             }
             
@@ -949,7 +945,7 @@
                 display: none;
             }
             
-            /* Keep 4 tentacles per jellyfish - good balance */
+            /* Keep 4 tentacles per jellyfish */
             .jellyfish1 .tentacle:nth-child(n+5),
             .jellyfish2 .tentacle:nth-child(n+5),
             .jellyfish3 .tentacle:nth-child(n+5) {
@@ -984,12 +980,6 @@
                 height: 5px;
                 top: 3px;
                 left: 3px;
-            }
-            
-            .jellyfish-mouth {
-                width: 14px;
-                height: 7px;
-                border-width: 1.5px;
             }
             
             /* Keep animations */
@@ -1215,14 +1205,14 @@
     </style>
 </head>
 <body>
-    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - ALL 8 JELLYFISH INCLUDED -->
+    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - MOUTHS REMOVED -->
     <div class="jellyfish-div jellyfish1">
         <div class="jellyfish-body">
             <div class="jellyfish-eyes">
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1244,7 +1234,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1266,7 +1256,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1288,7 +1278,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1310,7 +1300,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1332,7 +1322,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1354,7 +1344,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
@@ -1376,7 +1366,7 @@
                 <div class="jellyfish-eye"></div>
                 <div class="jellyfish-eye"></div>
             </div>
-            <div class="jellyfish-mouth"></div>
+            <!-- MOUTH DIV REMOVED -->
         </div>
         <div class="jellyfish-tentacles">
             <div class="tentacle"></div>
