@@ -1001,119 +1001,123 @@
 
         <!-- Contact Page -->
         <div id="contact" class="page">
-            <section class="page-title">
-                <h1>Contact Us</h1>
-                <p class="page-subtitle">Ready to start your project? Get in touch with us today!</p>
-            </section>
+    <section class="page-title">
+        <h1>Contact Us</h1>
+        <p class="page-subtitle">Ready to start your project? Get in touch with us today!</p>
+    </section>
 
-            <section class="contact-section">
-                <div class="contact-info">
-                    <h2 style="color: #7b68ee; margin-bottom: 30px;">Get In Touch</h2>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p><a href="tel:+263774109465">+263 77 410 9465</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p><a href="mailto:jellyfishingdude@gmail.com">jellyfishingdude@gmail.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9am - 6pm</p>
-                            <p>Saturday: 10am - 2pm</p>
-                            <p>Sunday: Closed</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Based In</h4>
-                            <p>Harare, Zimbabwe</p>
-                            <p>Remote services available worldwide</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 40px;">
-                        <h3 style="color: #7b68ee; margin-bottom: 15px;">Why Choose Us?</h3>
-                        <ul style="color: #b19cd9; line-height: 1.8; margin-left: 20px;">
-                            <li>Fast response time (usually within 2 hours)</li>
-                            <li>Free initial consultation</li>
-                            <li>Transparent pricing with no hidden fees</li>
-                            <li>Ongoing support after project completion</li>
-                        </ul>
-                    </div>
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2 style="color: #7b68ee; margin-bottom: 30px;">Get In Touch</h2>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Phone</h4>
+                    <p><a href="tel:+263774109465">+263 77 410 9465</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Email</h4>
+                    <p><a href="mailto:jellyfishingdude@gmail.com">jellyfishingdude@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Business Hours</h4>
+                    <p>Monday - Friday: 9am - 6pm</p>
+                    <p>Saturday: 10am - 2pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Based In</h4>
+                    <p>Harare, Zimbabwe</p>
+                    <p>Remote services available worldwide</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: #7b68ee; margin-bottom: 15px;">Why Choose Us?</h3>
+                <ul style="color: #b19cd9; line-height: 1.8; margin-left: 20px;">
+                    <li>Fast response time (usually within 2 hours)</li>
+                    <li>Free initial consultation</li>
+                    <li>Transparent pricing with no hidden fees</li>
+                    <li>Ongoing support after project completion</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h2 style="color: #7b68ee; margin-bottom: 30px;">Send Us a Message</h2>
+            
+            <div id="form-status"></div>
+            
+            <form id="contactForm" action="https://formspree.io/f/xojnlzqd" method="POST">
+                <!-- Add these hidden fields to help with formatting -->
+                <input type="hidden" name="_subject" value="New Contact from Jellyfishing Studios">
+                <input type="hidden" name="_replyto" value="email">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
                 </div>
                 
-                <div class="contact-form">
-                    <h2 style="color: #7b68ee; margin-bottom: 30px;">Send Us a Message</h2>
-                    
-                    <div id="form-status"></div>
-                    
-                    <form id="contactForm" action="https://formspree.io/f/xojnlzqd" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number (Optional)</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="+263 77 410 9465">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control">
-                                <option value="">Select a service</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Web Application">Web Application</option>
-                                <option value="Mobile App">Mobile App</option>
-                                <option value="E-commerce Solution">E-commerce Solution</option>
-                                <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
-                                <option value="Maintenance & Support">Maintenance & Support</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your project, timeline, and budget..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                    </form>
-                    
-                    <p style="text-align: center; margin-top: 20px; color: #b19cd9;">
-                        <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
-                    </p>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
                 </div>
-            </section>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+263 77 410 9465">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service" class="form-control">
+                        <option value="">Select a service</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Web Application">Web Application</option>
+                        <option value="Mobile App">Mobile App</option>
+                        <option value="E-commerce Solution">E-commerce Solution</option>
+                        <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
+                        <option value="Maintenance & Support">Maintenance & Support</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project, timeline, and budget..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 20px; color: #b19cd9;">
+                <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
+            </p>
         </div>
-
+    </section>
+</div>
         <footer>
             <p>&copy; 2023 Jellyfishing Studios. All rights reserved.</p>
             <p>Digital solutions that withstand the test of time and traffic.</p>
@@ -1290,6 +1294,7 @@
     </script>
 </body>
 </html>
+
 
 
 
