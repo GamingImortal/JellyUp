@@ -980,8 +980,9 @@
                     
                     <div id="form-status"></div>
                     
-                    <form action="https://formspree.io/f/xojnlzqd" method="POST">
-                        <input type="hidden" name="_subject" value="New Contact from Jellyfishing Studios">
+                    <form id="contactForm" action="https://formspree.io/f/xojnlzqd" method="POST">
+                        <input type="hidden" name="_subject" value="New message from Jellyfishing Studios">
+                        <input type="hidden" name="_replyto" value="email">
                         <input type="text" name="_gotcha" style="display:none">
                         
                         <div class="form-group">
@@ -1018,7 +1019,7 @@
                             <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project, timeline, and budget..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                     </form>
                     
                     <p style="text-align: center; margin-top: 20px; color: #b19cd9;">
@@ -1103,8 +1104,20 @@
 
         window.onload = function() {
             showPage('home');
+            
+            var urlParams = new URLSearchParams(window.location.search);
+            var formStatus = document.getElementById('form-status');
+            
+            if (urlParams.has('success')) {
+                formStatus.innerHTML = '<div class="success-message">Thank you! Your message has been sent successfully. We\'ll contact you within 2 hours.</div>';
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (urlParams.has('error')) {
+                formStatus.innerHTML = '<div class="error-message">Oops! Something went wrong. Please try again or call us directly at +263 77 410 9465.</div>';
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
         };
     </script>
 </body>
 </html>
-
