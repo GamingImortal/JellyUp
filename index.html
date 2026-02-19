@@ -44,6 +44,8 @@
             margin: 0 auto;
             padding: 20px;
             min-height: 80vh;
+            position: relative;
+            z-index: 100;
         }
 
         header {
@@ -52,7 +54,7 @@
             align-items: center;
             padding: 30px 0;
             position: relative;
-            z-index: 10;
+            z-index: 1000;
         }
 
         .logo {
@@ -65,6 +67,8 @@
             transition: all 0.3s ease;
             text-decoration: none;
             cursor: pointer;
+            position: relative;
+            z-index: 1000;
         }
 
         .logo:hover {
@@ -82,6 +86,8 @@
             display: flex;
             list-style: none;
             gap: 30px;
+            position: relative;
+            z-index: 1000;
         }
 
         nav a {
@@ -94,6 +100,11 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            display: inline-block;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
         }
 
         nav a.active {
@@ -110,6 +121,7 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(123, 104, 238, 0.3), transparent);
             transition: left 0.5s ease;
+            z-index: -1;
         }
 
         nav a:hover:before {
@@ -126,6 +138,7 @@
             text-align: center;
             padding: 80px 0;
             position: relative;
+            z-index: 200;
         }
 
         .hero h1 {
@@ -156,6 +169,8 @@
             transition: all 0.4s ease;
             cursor: pointer;
             max-width: 600px;
+            position: relative;
+            z-index: 200;
         }
 
         .catchphrase:hover {
@@ -179,6 +194,8 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            border: none;
+            z-index: 200;
         }
 
         .cta-button:hover {
@@ -207,6 +224,8 @@
             flex-wrap: wrap;
             gap: 30px;
             margin: 100px 0;
+            position: relative;
+            z-index: 200;
         }
 
         /* Page Styles */
@@ -215,6 +234,8 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            position: relative;
+            z-index: 200;
         }
 
         .page.active {
@@ -227,6 +248,7 @@
             text-align: center;
             padding: 40px 0;
             position: relative;
+            z-index: 200;
         }
 
         .page-title h1 {
@@ -253,6 +275,8 @@
             flex-wrap: wrap;
             gap: 30px;
             margin: 60px 0;
+            position: relative;
+            z-index: 200;
         }
 
         .service-card {
@@ -266,6 +290,7 @@
             border: 1px solid rgba(123, 104, 238, 0.2);
             position: relative;
             overflow: hidden;
+            z-index: 200;
         }
 
         .service-card:before {
@@ -325,6 +350,8 @@
             gap: 40px;
             margin: 60px 0;
             align-items: center;
+            position: relative;
+            z-index: 200;
         }
 
         .about-content {
@@ -373,6 +400,8 @@
             flex-wrap: wrap;
             gap: 40px;
             margin: 60px 0;
+            position: relative;
+            z-index: 200;
         }
 
         .contact-info {
@@ -484,6 +513,8 @@
             transition: all 0.3s ease;
             display: inline-block;
             width: 100%;
+            position: relative;
+            z-index: 200;
         }
 
         .submit-btn:hover {
@@ -499,6 +530,8 @@
 
         .portfolio-section {
             margin: 60px 0;
+            position: relative;
+            z-index: 200;
         }
 
         .portfolio-grid {
@@ -563,8 +596,9 @@
             color: #b19cd9;
         }
 
+        /* FIXED: Background elements now properly behind content */
         .jellyfish {
-            position: absolute;
+            position: fixed;
             width: 80px;
             height: 120px;
             background: radial-gradient(circle at 50% 20%, rgba(123, 104, 238, 0.8), rgba(123, 104, 238, 0.2) 70%);
@@ -573,6 +607,7 @@
             animation: float 6s infinite ease-in-out;
             z-index: 1;
             opacity: 0.7;
+            pointer-events: none;
         }
 
         .jellyfish:before {
@@ -599,7 +634,7 @@
         }
 
         .floating-divs {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
@@ -617,11 +652,7 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
             animation: jellyMove 15s infinite linear;
             transition: all 0.5s ease;
-        }
-
-        .floating-div:hover {
-            background: rgba(123, 104, 238, 0.3);
-            transform: scale(1.5);
+            pointer-events: none;
         }
 
         footer {
@@ -630,6 +661,8 @@
             margin-top: 80px;
             border-top: 1px solid rgba(123, 104, 238, 0.2);
             color: #b19cd9;
+            position: relative;
+            z-index: 200;
         }
 
         .home-link {
@@ -640,6 +673,8 @@
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            z-index: 200;
         }
 
         .home-link:hover {
@@ -693,7 +728,7 @@
     </style>
 </head>
 <body>
-    <!-- Background floating elements -->
+    <!-- Background floating elements - now with pointer-events: none -->
     <div class="floating-divs">
         <div class="floating-div" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
         <div class="floating-div" style="top: 20%; right: 10%; animation-delay: -2s; animation-duration: 12s;"></div>
@@ -702,7 +737,7 @@
         <div class="floating-div" style="bottom: 20%; right: 5%; animation-delay: -10s; animation-duration: 16s;"></div>
     </div>
 
-    <!-- Jellyfish elements -->
+    <!-- Jellyfish elements - now with pointer-events: none -->
     <div class="jellyfish" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
     <div class="jellyfish tentacles" style="top: 60%; right: 15%; animation-delay: -3s; animation-duration: 8s;"></div>
     <div class="jellyfish" style="bottom: 10%; left: 20%; animation-delay: -5s; animation-duration: 10s;"></div>
@@ -715,11 +750,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a onclick="showPage('home'); event.preventDefault();" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a onclick="showPage('services'); event.preventDefault();" class="nav-link" data-page="services">Services</a></li>
-                    <li><a onclick="showPage('portfolio'); event.preventDefault();" class="nav-link" data-page="portfolio">Portfolio</a></li>
-                    <li><a onclick="showPage('about'); event.preventDefault();" class="nav-link" data-page="about">About</a></li>
-                    <li><a onclick="showPage('contact'); event.preventDefault();" class="nav-link" data-page="contact">Contact</a></li>
+                    <li><a href="#" onclick="showPage('home'); return false;" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" onclick="showPage('services'); return false;" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" onclick="showPage('portfolio'); return false;" class="nav-link" data-page="portfolio">Portfolio</a></li>
+                    <li><a href="#" onclick="showPage('about'); return false;" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" onclick="showPage('contact'); return false;" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -736,7 +771,7 @@
                     <i class="fas fa-quote-right"></i>
                 </div>
                 
-                <a onclick="showPage('contact'); event.preventDefault();" class="cta-button" style="cursor: pointer;">Start Your Project From $30</a>
+                <a href="#" onclick="showPage('contact'); return false;" class="cta-button">Start Your Project From $30</a>
             </section>
 
             <section class="services-home">
@@ -918,7 +953,7 @@
                 </div>
                 
                 <p style="text-align: center; margin-top: 40px; color: #b19cd9;">
-                    Want to see more? <a onclick="showPage('contact'); event.preventDefault();" class="home-link" style="display: inline; cursor: pointer;">Contact us</a> for our full portfolio and case studies.
+                    Want to see more? <a href="#" onclick="showPage('contact'); return false;" class="home-link" style="display: inline; cursor: pointer;">Contact us</a> for our full portfolio and case studies.
                 </p>
             </section>
         </div>
@@ -1102,6 +1137,8 @@
 
         // Simple page navigation function
         function showPage(pageId) {
+            console.log('Navigating to:', pageId); // Debug log
+            
             // Hide all pages
             var pages = document.querySelectorAll('.page');
             for (var i = 0; i < pages.length; i++) {
@@ -1109,7 +1146,12 @@
             }
             
             // Show selected page
-            document.getElementById(pageId).classList.add('active');
+            var targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                console.error('Page not found:', pageId);
+            }
             
             // Update active navigation link
             var navLinks = document.querySelectorAll('.nav-link');
@@ -1234,9 +1276,17 @@
         // Initialize - show home page
         window.onload = function() {
             showPage('home');
+            
+            // Add click handlers to all nav links to ensure they work
+            var navLinks = document.querySelectorAll('.nav-link');
+            for (var i = 0; i < navLinks.length; i++) {
+                navLinks[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var page = this.getAttribute('data-page');
+                    showPage(page);
+                });
+            }
         };
     </script>
 </body>
 </html>
-
-
