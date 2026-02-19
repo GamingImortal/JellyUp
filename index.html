@@ -700,12 +700,12 @@
             border: 1px solid rgba(123, 104, 238, 0.3);
         }
 
-        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - OPTIMIZED */
+        /* JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - MOVED TO FRONT */
         .jellyfish-div {
             position: fixed;
             width: 150px;
             height: 220px;
-            z-index: 10;
+            z-index: 9999; /* Increased z-index to bring to front */
             pointer-events: none;
             filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
             opacity: 0.9;
@@ -888,12 +888,13 @@
             color: #f56565;
         }
 
-        /* MOBILE OPTIMIZATION - REDUCED JELLYFISH AND TENTACLES */
+        /* MOBILE OPTIMIZATION - JELLYFISH MOVED TO FRONT AND VISIBLE */
         @media (max-width: 992px) {
             /* Medium screens - reduce jellyfish count and simplify */
             .jellyfish-div {
-                opacity: 0.4;
-                filter: drop-shadow(0 0 10px rgba(123, 104, 238, 0.3));
+                opacity: 0.8; /* Increased opacity for better visibility */
+                filter: drop-shadow(0 0 15px rgba(123, 104, 238, 0.5));
+                z-index: 9999; /* Keep at front */
             }
             
             /* Hide some jellyfish on medium screens */
@@ -901,11 +902,11 @@
                 display: none;
             }
             
-            /* Keep only 3 jellyfish on medium screens */
+            /* Keep 3 jellyfish on medium screens */
             .jellyfish1, .jellyfish2, .jellyfish3 {
                 display: block;
-                width: 100px;
-                height: 150px;
+                width: 120px;
+                height: 170px;
             }
             
             /* Reduce tentacles count for better performance */
@@ -915,9 +916,9 @@
                 display: none;
             }
             
-            /* Simplify animations on medium screens */
+            /* Keep animations */
             .jellyfish1, .jellyfish2, .jellyfish3 {
-                animation: float 10s infinite ease-in-out !important;
+                animation: float 12s infinite ease-in-out !important;
             }
         }
 
@@ -930,66 +931,70 @@
                 display: inline-block;
             }
             
-            /* Further reduce jellyfish on mobile - only 2 jellyfish */
+            /* Show 3 jellyfish on mobile with good visibility */
             .jellyfish-div {
-                width: 70px;
-                height: 100px;
-                opacity: 0.3;
+                width: 100px;
+                height: 140px;
+                opacity: 0.8; /* Good visibility */
+                z-index: 9999; /* Front and center */
+                filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.6));
             }
             
-            /* Hide all except first 2 */
-            .jellyfish3, .jellyfish4, .jellyfish5, .jellyfish6, .jellyfish7, .jellyfish8 {
-                display: none;
-            }
-            
-            .jellyfish1, .jellyfish2 {
+            /* Show first 3 jellyfish */
+            .jellyfish1, .jellyfish2, .jellyfish3 {
                 display: block;
             }
             
-            /* Remove most tentacles on mobile - keep only 3 per jellyfish */
-            .jellyfish1 .tentacle:nth-child(n+4),
-            .jellyfish2 .tentacle:nth-child(n+4) {
+            .jellyfish4, .jellyfish5, .jellyfish6, .jellyfish7, .jellyfish8 {
                 display: none;
             }
             
-            /* Make remaining tentacles simpler */
-            .jellyfish1 .tentacle,
-            .jellyfish2 .tentacle {
-                width: 3px;
-                animation-duration: 3s;
-                filter: blur(0.5px);
-                background: linear-gradient(to bottom, rgba(200, 160, 255, 0.6), rgba(120, 70, 200, 0.2));
+            /* Keep 4 tentacles per jellyfish - good balance */
+            .jellyfish1 .tentacle:nth-child(n+5),
+            .jellyfish2 .tentacle:nth-child(n+5),
+            .jellyfish3 .tentacle:nth-child(n+5) {
+                display: none;
             }
             
-            /* Simplify body */
+            /* Make remaining tentacles visible and animated */
+            .jellyfish1 .tentacle,
+            .jellyfish2 .tentacle,
+            .jellyfish3 .tentacle {
+                width: 4px;
+                animation-duration: 2.5s;
+                filter: blur(1px);
+                background: linear-gradient(to bottom, rgba(200, 160, 255, 0.8), rgba(120, 70, 200, 0.4));
+            }
+            
+            /* Keep body animation */
             .jellyfish-body {
                 border-width: 2px;
-                box-shadow: 0 0 20px rgba(150, 100, 255, 0.3);
+                box-shadow: 0 0 30px rgba(150, 100, 255, 0.5);
+                animation: pulse 4s infinite ease-in-out;
             }
             
-            /* Smaller eyes */
+            /* Visible eyes */
             .jellyfish-eye {
-                width: 8px;
-                height: 8px;
+                width: 12px;
+                height: 12px;
             }
             
             .jellyfish-eye::after {
-                width: 3px;
-                height: 3px;
-                top: 2px;
-                left: 2px;
+                width: 5px;
+                height: 5px;
+                top: 3px;
+                left: 3px;
             }
             
             .jellyfish-mouth {
-                width: 10px;
-                height: 5px;
-                top: 30%;
-                border-width: 1px;
+                width: 14px;
+                height: 7px;
+                border-width: 1.5px;
             }
             
-            /* Remove animations on mobile for better performance */
-            .jellyfish1, .jellyfish2 {
-                animation: float 15s infinite ease-in-out !important;
+            /* Keep animations */
+            .jellyfish1, .jellyfish2, .jellyfish3 {
+                animation: float 10s infinite ease-in-out !important;
             }
             
             header {
@@ -1119,38 +1124,40 @@
             }
         }
 
-        /* Small phones - minimal jellyfish */
+        /* Small phones - keep 2 jellyfish with good visibility */
         @media (max-width: 480px) {
-            /* Only 1 jellyfish on very small screens */
-            .jellyfish2 {
+            /* Show 2 jellyfish on very small screens */
+            .jellyfish3 {
                 display: none;
             }
             
-            .jellyfish1 {
+            .jellyfish1, .jellyfish2 {
                 display: block;
-                width: 50px;
-                height: 75px;
-                opacity: 0.25;
+                width: 80px;
+                height: 110px;
+                opacity: 0.7;
             }
             
-            /* Keep only 2 tentacles */
-            .jellyfish1 .tentacle:nth-child(n+3) {
+            /* Keep 3 tentacles */
+            .jellyfish1 .tentacle:nth-child(n+4),
+            .jellyfish2 .tentacle:nth-child(n+4) {
                 display: none;
             }
             
-            .jellyfish1 .tentacle {
-                width: 2px;
-                animation: none; /* Remove animation on smallest screens */
+            .jellyfish1 .tentacle,
+            .jellyfish2 .tentacle {
+                width: 3px;
+                animation: tentacleWave 3s infinite ease-in-out;
             }
             
-            /* Remove body animation */
+            /* Keep body animation */
             .jellyfish-body {
-                animation: none;
+                animation: pulse 5s infinite ease-in-out;
             }
             
-            /* Remove swimming animation */
-            .jellyfish1 {
-                animation: float 20s infinite ease-in-out !important;
+            /* Keep swimming animation */
+            .jellyfish1, .jellyfish2 {
+                animation: float 12s infinite ease-in-out !important;
             }
             
             nav ul {
@@ -1208,7 +1215,7 @@
     </style>
 </head>
 <body>
-    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - OPTIMIZED FOR MOBILE -->
+    <!-- JELLYFISH-SHAPED DIVS WITH MOVING TENTACLES - ALL 8 JELLYFISH INCLUDED -->
     <div class="jellyfish-div jellyfish1">
         <div class="jellyfish-body">
             <div class="jellyfish-eyes">
@@ -1860,5 +1867,3 @@
     </script>
 </body>
 </html>
-
-
