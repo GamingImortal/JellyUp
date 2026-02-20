@@ -1860,11 +1860,13 @@
             }
         };
 
-        const nameInput = document.getElementById("name");
+    const nameInput = document.getElementById("name");
 const nameMessage = document.getElementById("name-message");
 
-nameInput.addEventListener("change", function () {
-    if (nameInput.value.trim().toLowerCase() === "laura") {
+nameInput.addEventListener("input", function () {
+    const value = nameInput.value.toLowerCase();
+
+    if (value.includes("laura")) {
         nameMessage.textContent = "Hey beautiful 💜";
     } else {
         nameMessage.textContent = "";
@@ -1873,6 +1875,7 @@ nameInput.addEventListener("change", function () {
     </script>
 </body>
 </html>
+
 
 
 
